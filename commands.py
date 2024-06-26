@@ -7,6 +7,14 @@ class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    @commands.command(name='help')
+    async def help(self, ctx):
+        embedVar = discord.Embed(title="Help", description="List of commands", color=0x3F19F7)
+        embedVar.add_field(name="crime", value="Check your crime coefficient", inline=False)
+        embedVar.add_field(name="digimon", value="Get information about a digimon", inline=False)
+        embedVar.add_field(name="mc_skin", value="Borrow someone's Minecraft skin", inline=False)
+        return await ctx.send(embed=embedVar)
+
     @commands.command(name='crime')
     async def crime(self, ctx, member: discord.Member = None):
         if member is None:
