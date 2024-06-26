@@ -40,19 +40,18 @@ async def main():
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
+    await client.change_presence(activity=discord.Game(name="Dune"))
 @client.event
 async def on_message(message):
     # Don't let the bot respond to its own messages
     if message.author == client.user:
         return
-
-    if 'dune' in message.content.lower():
-        # Choose a random message from the predefined list
-        response = random.choice(dune_messages)
-        await message.channel.send(response)
-
-    # Process commands if the message is a command
+    #If the message contains the word "Dune", respond with a random message from the list
+    if "dune" in message.content.lower():
+        await message.add_reaction("🐛")
+        await message.channel.send(dune_messages[int(random() * len(dune_messages))])
     await client.process_commands(message)
+
 
 async def importConfig():
     try:
