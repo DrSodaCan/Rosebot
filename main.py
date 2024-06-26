@@ -22,6 +22,7 @@ async def main():
             json.dump(config, f)
 
     # Load the commands
+    client.remove_command("help")
     print("Loading the commands extension")  # Debug print statement
     await client.load_extension('commands')
 
