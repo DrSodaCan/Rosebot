@@ -93,8 +93,6 @@ class Commands(commands.Cog):
         image.save("output.png")
         await ctx.send(file=discord.File("output.png"))
 
-
-
 async def setup(bot):
     print("Setting up the cog")  # Debug print statement
     await bot.add_cog(Commands(bot))
