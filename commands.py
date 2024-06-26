@@ -2,6 +2,8 @@ from random import randint
 import discord
 import requests
 from discord.ext import commands
+from PIL import Image
+import PIL
 
 class Commands(commands.Cog):
     def __init__(self, bot):
@@ -10,9 +12,10 @@ class Commands(commands.Cog):
     @commands.command(name='help')
     async def help(self, ctx):
         embedVar = discord.Embed(title="Help", description="List of commands", color=0x3F19F7)
-        embedVar.add_field(name="crime", value="Check your crime coefficient", inline=False)
-        embedVar.add_field(name="digimon", value="Get information about a digimon", inline=False)
-        embedVar.add_field(name="mc_skin", value="Borrow someone's Minecraft skin", inline=False)
+        embedVar.add_field(name="crime", value="Check your crime coefficient. Input: @User", inline=False)
+        embedVar.add_field(name="digimon", value="Get information about a digimon. Input: Name", inline=False)
+        embedVar.add_field(name="mc_skin", value="Borrow someone's Minecraft skin. Input: username", inline=False)
+        embedVar.add_field(name="quantize", value="Quantize an image. Required input: Image. Optional input: # of colors (default 256)", inline=False)
         return await ctx.send(embed=embedVar)
 
     @commands.command(name='crime')
@@ -80,6 +83,18 @@ class Commands(commands.Cog):
         embedVar = discord.Embed(title=f"{username}'s Minecraft Skin", color=0x3F19F7)
         embedVar.set_image(url=skin)
         return await ctx.send(embed=embedVar)
+    @commands.command(name='quantize')
+    async def quantize(self, ctx, colors=256):
+        if len(ctx.message.attachments) == 0:
+            return await ctx.send("You need to attach an image!")
+        attachment = ctx.message.attachments[0]
+        image = Image.open(requests.get(attachment.url, stream=True).raw)
+        image = image.quantize(colors=colors)
+        image.save("output.png")
+        await ctx.send(file=discord.File("output.png"))
+
+
+
 async def setup(bot):
     print("Setting up the cog")  # Debug print statement
     await bot.add_cog(Commands(bot))
