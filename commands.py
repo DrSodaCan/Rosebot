@@ -56,7 +56,6 @@ class Commands(commands.Cog):
         if not data:
             return await ctx.send("No digimon found with that name!")
         name = data['name']
-        print(name)
 
         image = data['images'][0]['href']
         embedVar = discord.Embed(title=name, color=0x3F19F7)
