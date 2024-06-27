@@ -1,21 +1,22 @@
-#RoseBot
+# RoseBot
 A bot by @atlas.net
 Default prefix:
 `l.`
 
-##Commands
+## Commands
 
-#Crime
+# Crime
 Parameters:
 @user
 Replies with a random Crime Coefficient, with an embedded gif
 
-#Digimon
+# Digimon
 Parameters:
 string - Digimon name
 Replies with the Digimon's description and an image
 
 
-##Todo:
+## Todo:
 Add music functionality
 Improve Digimon API usages
+Slash Commands
