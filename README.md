@@ -3,14 +3,14 @@ A bot by @atlas.net
 Default prefix:
 `l.`
 
-## Commands
+### Commands
 
 # Crime
 Parameters:
 @user
 Replies with a random Crime Coefficient, with an embedded gif
 
-# Digimon
+### Digimon
 Parameters:
 string - Digimon name
 Replies with the Digimon's description and an image
