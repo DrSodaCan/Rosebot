@@ -3,9 +3,9 @@ A bot by @atlas.net
 Default prefix:
 `l.`
 
-### Commands
+## Commands
 
-# Crime
+### Crime
 Parameters:
 @user
 Replies with a random Crime Coefficient, with an embedded gif
