@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/RoseBot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/names.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,19 +33,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\thega\PycharmProjects\RoseBot" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="RoseBot" />
@@ -97,14 +101,102 @@
       <workItem from="1719014131118" duration="384000" />
       <workItem from="1719189041242" duration="1177000" />
       <workItem from="1719382321391" duration="3252000" />
-      <workItem from="1719390091420" duration="757000" />
+      <workItem from="1719390091420" duration="1770000" />
+      <workItem from="1719430773690" duration="3934000" />
+      <workItem from="1719612150605" duration="680000" />
+      <workItem from="1719648419715" duration="3989000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Digimon API &#10;Added Minecraft Skin command">
+      <option name="closed" value="true" />
+      <created>1719390941261</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719390941261</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added help command">
+      <option name="closed" value="true" />
+      <created>1719391032112</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719391032112</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added .idea to gitignore">
+      <option name="closed" value="true" />
+      <created>1719391085817</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719391085817</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed l.help to work as intended">
+      <option name="closed" value="true" />
+      <created>1719391731921</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719391731921</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added quantize function&#10;Added arguments to help">
+      <option name="closed" value="true" />
+      <created>1719391750941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719391750941</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added image files to .gitignore">
+      <option name="closed" value="true" />
+      <created>1719391778078</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719391778078</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Reimplemented Rose's love of Paul Atreides">
+      <option name="closed" value="true" />
+      <created>1719431376593</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719431376594</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Dune message reading was broken. Fixed here">
+      <option name="closed" value="true" />
+      <created>1719436616811</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1719436616811</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Removed debug print">
+      <option name="closed" value="true" />
+      <created>1719436626983</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719436626983</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Digimon API &#10;Added Minecraft Skin command" />
+    <MESSAGE value="Added help command" />
+    <MESSAGE value="Added .idea to gitignore" />
+    <MESSAGE value="Fixed l.help to work as intended" />
+    <MESSAGE value="Added quantize function&#10;Added arguments to help" />
+    <MESSAGE value="Added image files to .gitignore" />
+    <MESSAGE value="Reimplemented Rose's love of Paul Atreides" />
+    <MESSAGE value="Dune message reading was broken. Fixed here" />
+    <MESSAGE value="Removed debug print" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed debug print" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1719390413102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1719654545730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
