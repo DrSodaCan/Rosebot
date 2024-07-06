@@ -79,8 +79,9 @@ async def on_message(message):
     content = content.replace("l.noun", nouns[int(random() * len(nouns))])
     content = content.replace("l.adjective", adjectives[int(random() * len(adjectives))])
     content = content.replace("l.verb", verbs[int(random() * len(verbs))])
+    if content.find("l.name") != -1:
+        content = content.replace("l.name", names.get_name())
 
-    content = content.replace("l.name", names.get_name())
     if content != message.content:
         await message.channel.send("Surely you meant:\n" + content)
 
@@ -108,9 +109,6 @@ def get_words_by_pos(pos, max_results=50):
         if len(words) >= max_results:
             break
     return list(words)[:max_results]
-
-
-
 
 
 
