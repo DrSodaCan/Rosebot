@@ -5,6 +5,7 @@ from names import Name
 import discord
 import requests
 from discord.ext import commands
+import movies
 
 import nltk
 from nltk.corpus import wordnet
@@ -17,13 +18,16 @@ intents.message_content = True
 client = commands.Bot(command_prefix="l.", intents=intents)
 config = {}
 names = Name("", [])
-dune_messages = ["Omg I LOVE Dune, Paul Atreides is sooo attractive", "Dune is the best book ever written",
+async def movie_init():
+    dune = movies.movies("Dune")
+    dune.add_response(*("Omg I LOVE Dune, Paul Atreides is sooo attractive", "Dune is the best book ever written",
                  "I wish I could live in the Dune universe",
                  "Every once in a while, I remember that Dune exists and I get really happy, then I remember that I'm not in the Dune universe and I get really sad",
                  "I'm not a fan of Dune, but I respect your opinion", "Dune is a great book, but it's not for me",
                  "I've never read Dune, but I've heard it's good", "Dune is overrated",
                  "Dune? Reminds me of the deserts from my deployment in Iraq", "Dune is a classic",
-                 "Paul Atreides makes me feel things ??????", "Heyyyyyy, wanna talk about Dune?"]
+                 "Paul Atreides makes me feel things ;))", "Heyyyyyy, wanna talk about Dune?"))
+
 
 
 def get_words_by_pos(pos, max_results=50):
@@ -39,9 +43,11 @@ def get_words_by_pos(pos, max_results=50):
 nouns = get_words_by_pos(wordnet.NOUN, 50)
 adjectives = get_words_by_pos(wordnet.ADJ, 50)
 verbs = get_words_by_pos(wordnet.VERB, 50)
+
+
 async def main():
     #names.new_names()
-
+    await movie_init()
     global config
     config = await importConfig()
     names.set_key(config['ninjaAPI'])
@@ -67,7 +73,10 @@ async def main():
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
-    await client.change_presence(activity=discord.Game(name="Dune"))
+    await client.change_presence(activity=discord.Game(name="with a side of Pepsi"))
+    #sync commands
+    await client.get_cog("Commands").sync_commands()
+
 
 @client.event
 async def on_message(message):
@@ -87,7 +96,17 @@ async def on_message(message):
 
     if "dune" in message.content.lower():
         await message.add_reaction("🐛")
-        await message.channel.send(dune_messages[int(random() * len(dune_messages))])
+        await message.channel.send(movies.movie_list["Dune"].get_response())
+    if "nuts" in message.content.lower():
+        await message.add_reaction("🥜")
+    if "deez" in message.content.lower():
+        await message.add_reaction("🥜")
+    if "mommy" in message.content.lower():
+        await message.add_reaction("🤨")
+    if "salami" in message.content.lower():
+        await message.add_reaction("😳")
+    if "joe" in message.content.lower():
+        await message.add_reaction("😏")
     await client.process_commands(message)
 
 
@@ -105,7 +124,7 @@ def get_words_by_pos(pos, max_results=50):
     words = set()
     for synset in wordnet.all_synsets(pos):
         for lemma in synset.lemmas():
-            words.add(lemma.name())
+            words.add(lemma.name().replace("_", " "))
         if len(words) >= max_results:
             break
     return list(words)[:max_results]

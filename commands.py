@@ -1,6 +1,9 @@
 from random import randint
+
+import aiohttp
 import discord
 import requests
+import youtube
 from discord.ext import commands
 from PIL import Image
 import PIL
@@ -16,7 +19,10 @@ class Commands(commands.Cog):
         embedVar.add_field(name="digimon", value="Get information about a digimon. Input: Name", inline=False)
         embedVar.add_field(name="mc_skin", value="Borrow someone's Minecraft skin. Input: username", inline=False)
         embedVar.add_field(name="quantize", value="Quantize an image. Required input: Image. Optional input: # of colors (default 256)", inline=False)
+        embedVar.add_field(name="balance", value="Check your Lunacoin balance", inline=False)
+        embedVar.add_field(name="pay", value="Send Lunacoins to someone. Input: @User, amount", inline=False)
         return await ctx.send(embed=embedVar)
+
 
     @commands.command(name='crime')
     async def crime(self, ctx, member: discord.Member = None):
@@ -91,6 +97,92 @@ class Commands(commands.Cog):
         image = image.quantize(colors=colors)
         image.save("output.png")
         await ctx.send(file=discord.File("output.png"))
+
+    #Lunacoin commands: balance, send, request, link to mc account leaderboard
+    @commands.command(name='create_lunacoin_account')
+    async def create_lunacoin_account(self, ctx):
+        #API: https://localhost:7072/Create
+        #Input: requires JSON with:
+        # discordID: ctx.author.id
+        # balance: 100
+        #SSL is disabled for now
+
+        url = f"https://localhost:7072/User"
+        user_data = {
+            "username": ctx.author.name,
+            "discordId": str(ctx.author.id),
+            "balance": 100.00
+        }
+        print(user_data)
+        requests.post(url, json=user_data, verify=False)
+
+        return await ctx.send("Account created successfully! You have a balance of: 100.00 Lunacoins")
+
+    @commands.command(name='balance')
+    async def balance(self, ctx):
+        url = f"https://localhost:7072/discordID/{ctx.author.id}"
+        print(url)
+
+        async with aiohttp.ClientSession() as session:
+            try:
+                async with session.get(url, ssl=False) as response:
+                    print("Response: ", response.status)
+                    if response.status == 404:
+                        await ctx.send("You don't have a Lunacoin account yet! Creating one now...")
+                        print("Creating account")
+                        return await self.create_lunacoin_account(ctx)
+                    if response.status != 200:
+                        print(response.status)
+                        return await ctx.send("An error occurred while fetching your balance.")
+
+                    data = await response.json()
+                    print(data)
+                    balance = data['balance']
+                    return await ctx.send(f"Your balance is: {balance}")
+            except aiohttp.ClientError as e:
+                print(f"Request failed: {e}")
+                await ctx.send("An error occurred while fetching your balance.")
+
+
+
+    @commands.command(name='pay')
+    async def pay(self, ctx, recipient: discord.Member, amount: float):
+        url = f"https://localhost:7072/Transfer"
+        user_data = {
+            "SenderDiscordId": ctx.author.id,
+            "RecipientDiscordId": recipient.id,
+            "Amount": amount
+        }
+        requests.post(url, json=user_data, verify=False)
+
+        if not requests.status_code == 200:
+            return await ctx.send("An error occurred while sending the payment.")
+        return await ctx.send(f"Payment of {amount} Lunacoins sent to {recipient.display_name}")
+
+    @commands.command(name='pay_debug')
+    async def pay_debug(self, ctx):
+        url = f"https://localhost:7072/Transfer"
+        user_data = {
+            "senderDiscordId": 153340370661539841,
+            "recipientDiscordId": 1201739913205121034,
+            "amount": 25
+        }
+        async with aiohttp.ClientSession() as session:
+            try:
+                async with session.post(url, json=user_data, ssl=False) as response:
+                    print("Response: ", response.status)
+                    if response.status != 200:
+                        return await ctx.send("An error occurred while sending the payment.")
+                    return await ctx.send(f"Payment of {user_data['Amount']} Lunacoins sent to recipient")
+            except aiohttp.ClientError as e:
+                print(f"Request failed: {e}")
+                await ctx.send("An error occurred while sending the payment.")
+
+
+
+
+
+
 
 async def setup(bot):
     print("Setting up the cog")  # Debug print statement

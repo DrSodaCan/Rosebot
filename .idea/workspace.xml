@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Added Random Word Generation">
+    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Made l.name more careful with api request limit usage">
+      <change afterPath="$PROJECT_DIR$/movies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtube.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RoseBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RoseBot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,10 +51,13 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
     &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
       &quot;Python&quot;
     ]
@@ -75,6 +83,16 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -88,7 +106,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-eebebe6c2be4-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15325.20" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
+        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
       </set>
     </attachedChunks>
   </component>
@@ -112,6 +131,22 @@
       <workItem from="1719696677512" duration="1658000" />
       <workItem from="1720235025626" duration="306000" />
       <workItem from="1720235450671" duration="547000" />
+      <workItem from="1720310144908" duration="1882000" />
+      <workItem from="1720313531396" duration="44000" />
+      <workItem from="1720675489209" duration="2362000" />
+      <workItem from="1720819437587" duration="295000" />
+      <workItem from="1720822053096" duration="1770000" />
+      <workItem from="1721213973521" duration="63000" />
+      <workItem from="1721214152825" duration="19000" />
+      <workItem from="1721345684641" duration="721000" />
+      <workItem from="1721688352778" duration="3566000" />
+      <workItem from="1721698652641" duration="4876000" />
+      <workItem from="1721948423268" duration="1574000" />
+      <workItem from="1721960719443" duration="1043000" />
+      <workItem from="1722475240908" duration="51000" />
+      <workItem from="1722916692586" duration="5201000" />
+      <workItem from="1723413961649" duration="286000" />
+      <workItem from="1723685596036" duration="613000" />
     </task>
     <task id="LOCAL-00001" summary="Added Digimon API &#10;Added Minecraft Skin command">
       <option name="closed" value="true" />
@@ -193,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719654609894</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Made l.name more careful with api request limit usage">
+      <option name="closed" value="true" />
+      <created>1720310217104</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720310217104</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,9 +264,10 @@
     <MESSAGE value="Dune message reading was broken. Fixed here" />
     <MESSAGE value="Removed debug print" />
     <MESSAGE value="Added Random Word Generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Random Word Generation" />
+    <MESSAGE value="Made l.name more careful with api request limit usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made l.name more careful with api request limit usage" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1719696758513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1723685600571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
