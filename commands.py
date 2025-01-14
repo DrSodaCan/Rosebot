@@ -1,4 +1,5 @@
 from random import randint
+from random import choice
 
 import aiohttp
 import discord
@@ -98,6 +99,14 @@ class Commands(commands.Cog):
         image.save("output.png")
         await ctx.send(file=discord.File("output.png"))
 
+    @commands.command(name='8ball')
+    async def eightball(self, ctx, *, question):
+        options = ["Yes", "No", "Ask Later", "Maybe", "Probably", "Probably Not"]
+        output = choice(options)
+        output = "> 🎱 " + output
+        await ctx.send(output)
+
+
     #Lunacoin commands: balance, send, request, link to mc account leaderboard
     @commands.command(name='create_lunacoin_account')
     async def create_lunacoin_account(self, ctx):
@@ -141,7 +150,9 @@ class Commands(commands.Cog):
                     return await ctx.send(f"Your balance is: {balance}")
             except aiohttp.ClientError as e:
                 print(f"Request failed: {e}")
-                await ctx.send("An error occurred while fetching your balance.")
+                await ctx.send("An error occurred while fetching your balance.(Server is down)")
+
+
 
 
 
@@ -157,7 +168,10 @@ class Commands(commands.Cog):
 
         if not requests.status_code == 200:
             return await ctx.send("An error occurred while sending the payment.")
-        return await ctx.send(f"Payment of {amount} Lunacoins sent to {recipient.display_name}")
+        return await ctx.send(f"Payment of {amount} Lunacoins sent to {recipient.display_name}. (Server is down)")
+
+
+
 
     @commands.command(name='pay_debug')
     async def pay_debug(self, ctx):
