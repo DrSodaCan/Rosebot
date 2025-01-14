@@ -50,14 +50,18 @@ async def main():
     await movie_init()
     global config
     config = await importConfig()
-    names.set_key(config['ninjaAPI'])
 
     if not config:
         config = {}
         config['token'] = input("Enter your bot token: ")
         config['prefix'] = "l."
+        config['ninjaAPI'] = ""
         with open('config.json', 'w') as f:
             json.dump(config, f)
+    try:
+        names.set_key(config['ninjaAPI'])
+    except KeyError:
+        print("No Ninja API found. Cannot use Name generator")
 
     # Load the commands
     client.remove_command("help")
