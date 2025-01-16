@@ -4,10 +4,8 @@ from random import choice
 import aiohttp
 import discord
 import requests
-import youtube
 from discord.ext import commands
 from PIL import Image
-import PIL
 
 class Commands(commands.Cog):
     def __init__(self, bot):
@@ -67,7 +65,7 @@ class Commands(commands.Cog):
         image = data['images'][0]['href']
         embedVar = discord.Embed(title=name, color=0x3F19F7)
 
-        #embedVar.add_field(name="Level", value=data['level'])
+        embedVar.add_field(name="Level", value=data['levels'][0]['level'])
         embedVar.add_field(name="Description", value=data['descriptions'][1]['description'])
 
         embedVar = embedVar.set_image(url=image)
