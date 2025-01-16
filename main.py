@@ -27,7 +27,28 @@ async def movie_init():
                  "I've never read Dune, but I've heard it's good", "Dune is overrated",
                  "Dune? Reminds me of the deserts from my deployment in Iraq", "Dune is a classic",
                  "Paul Atreides makes me feel things ;))", "Heyyyyyy, wanna talk about Dune?"))
+    naruto = movies.movies("Naruto")
+    naruto.add_response(*("Pshh, weebs amirite?", "Naruto is overrated",
+                          "Believe it! …or don't.", "Sasuke was better anyway.",
+                          "Naruto fans are built different."))
 
+
+    pomni = movies.movies("Pomni")
+    pomni.add_response(*("she just like me frfr",
+                         "https://tenor.com/view/the-pomni-song-the-amazing-digital-circus-pomni-digital-circus-pomni-my-name-is-pomni-and-i-can%E2%80%99t-escape-the-digital-circus-gif-930457201671946760",
+                         "I wake up everyday thinking I'm stuck in a digital circus too."))
+
+    bocchi = movies.movies("Bocchi")
+    bocchi.add_response(*("She just like me frfr", "Bocchi just GETS me yknow. She just like me frrrrr",
+                          "Bocchi for president.", "What if… Bocchi was real?"))
+    minecraft = movies.movies("Minecraft")
+    minecraft.add_response(*("https://tenor.com/view/jack-black-funny-i-am-steve-minecraft-movie-minecraft-gif-5160011517617965793",
+                             "Creeper? Aww man!", "Mining diamonds, brb.",
+                             "Steve is peak human performance."))
+    shrek = movies.movies("Shrek")
+    shrek.add_response(*("Get outta my swamp!", "Ogres are like onions.",
+                         "Donkey is the real MVP.", "Shrek is love, Shrek is life.",
+                         "What are you doing in my swamp? No, seriously."))
 
 
 def get_words_by_pos(pos, max_results=50):
@@ -77,7 +98,7 @@ async def main():
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
-    await client.change_presence(activity=discord.Game(name="with a side of Pepsi"))
+    await client.change_presence(activity=discord.Game(name="Tetris"))
     #sync commands
     await client.get_cog("Commands").sync_commands()
 
@@ -98,9 +119,17 @@ async def on_message(message):
     if content != message.content:
         await message.channel.send("Surely you meant:\n" + content)
 
+
+    for movie_name, movie_obj in movies.movie_list.items():
+        if movie_name.lower() in content.lower():
+            await message.channel.send(movie_obj.get_response())
+            break  # Stop after the first match to avoid multiple responses
+
+
     if "dune" in message.content.lower():
         await message.add_reaction("🐛")
-        await message.channel.send(movies.movie_list["Dune"].get_response())
+        #await message.channel.send(movies.movie_list["Dune"].get_response())
+
     if "nuts" in message.content.lower():
         await message.add_reaction("🥜")
     if "deez" in message.content.lower():
