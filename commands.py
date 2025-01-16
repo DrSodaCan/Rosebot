@@ -104,7 +104,7 @@ class Commands(commands.Cog):
         output = "> 🎱 " + output
         await ctx.send(output)
 
-
+    '''''
     #Lunacoin commands: balance, send, request, link to mc account leaderboard
     @commands.command(name='create_lunacoin_account')
     async def create_lunacoin_account(self, ctx):
@@ -149,11 +149,6 @@ class Commands(commands.Cog):
             except aiohttp.ClientError as e:
                 print(f"Request failed: {e}")
                 await ctx.send("An error occurred while fetching your balance.(Server is down)")
-
-
-
-
-
     @commands.command(name='pay')
     async def pay(self, ctx, recipient: discord.Member, amount: float):
         url = f"https://localhost:7072/Transfer"
@@ -167,34 +162,7 @@ class Commands(commands.Cog):
         if not requests.status_code == 200:
             return await ctx.send("An error occurred while sending the payment.")
         return await ctx.send(f"Payment of {amount} Lunacoins sent to {recipient.display_name}. (Server is down)")
-
-
-
-
-    @commands.command(name='pay_debug')
-    async def pay_debug(self, ctx):
-        url = f"https://localhost:7072/Transfer"
-        user_data = {
-            "senderDiscordId": 153340370661539841,
-            "recipientDiscordId": 1201739913205121034,
-            "amount": 25
-        }
-        async with aiohttp.ClientSession() as session:
-            try:
-                async with session.post(url, json=user_data, ssl=False) as response:
-                    print("Response: ", response.status)
-                    if response.status != 200:
-                        return await ctx.send("An error occurred while sending the payment.")
-                    return await ctx.send(f"Payment of {user_data['Amount']} Lunacoins sent to recipient")
-            except aiohttp.ClientError as e:
-                print(f"Request failed: {e}")
-                await ctx.send("An error occurred while sending the payment.")
-
-
-
-
-
-
+    '''
 
 async def setup(bot):
     print("Setting up the cog")  # Debug print statement
