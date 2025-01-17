@@ -43,8 +43,9 @@ async def movie_init():
                           "Bocchi for president.", "What if… Bocchi was real?"))
     minecraft = movies.movies("Minecraft")
     minecraft.add_response(*("https://tenor.com/view/jack-black-funny-i-am-steve-minecraft-movie-minecraft-gif-5160011517617965793",
-                             "Creeper? Aww man!", "Mining diamonds, brb.",
-                             "Steve is peak human performance."))
+                             "Creeper? Aww man!", "As a child, I yearned for the mines..."))
+    steve = movies.movies("I am Steve")
+    steve.add_response("https://tenor.com/view/jack-black-funny-i-am-steve-minecraft-movie-minecraft-gif-5160011517617965793")
     shrek = movies.movies("Shrek")
     shrek.add_response(*("Get outta my swamp!", "Ogres are like onions.",
                          "Donkey is the real MVP.", "Shrek is love, Shrek is life.",
