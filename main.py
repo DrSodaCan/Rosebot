@@ -5,7 +5,7 @@ from names import Name
 import discord
 import requests
 from discord.ext import commands
-import movies
+import replier
 
 import nltk
 from nltk.corpus import wordnet
@@ -19,7 +19,7 @@ client = commands.Bot(command_prefix="l.", intents=intents)
 config = {}
 names = Name("", [])
 async def movie_init():
-    dune = movies.movies("Dune")
+    dune = replier.movies("Dune")
     dune.add_response(*("Omg I LOVE Dune, Paul Atreides is sooo attractive", "Dune is the best book ever written",
                  "I wish I could live in the Dune universe",
                  "Every once in a while, I remember that Dune exists and I get really happy, then I remember that I'm not in the Dune universe and I get really sad",
@@ -27,29 +27,29 @@ async def movie_init():
                  "I've never read Dune, but I've heard it's good", "Dune is overrated",
                  "Dune? Reminds me of the deserts from my deployment in Iraq", "Dune is a classic",
                  "Paul Atreides makes me feel things ;))", "Heyyyyyy, wanna talk about Dune?"))
-    naruto = movies.movies("Naruto")
+    naruto = replier.movies("Naruto")
     naruto.add_response(*("Pshh, weebs amirite?", "Naruto is overrated",
                           "Believe it! …or don't.", "Sasuke was better anyway.",
                           "Naruto fans are built different."))
 
 
-    pomni = movies.movies("Pomni")
+    pomni = replier.movies("Pomni")
     pomni.add_response(*("she just like me frfr",
                          "https://tenor.com/view/the-pomni-song-the-amazing-digital-circus-pomni-digital-circus-pomni-my-name-is-pomni-and-i-can%E2%80%99t-escape-the-digital-circus-gif-930457201671946760",
                          "I wake up everyday thinking I'm stuck in a digital circus too."))
 
-    bocchi = movies.movies("Bocchi")
+    bocchi = replier.movies("Bocchi")
     bocchi.add_response(*("She just like me frfr", "Bocchi just GETS me yknow. She just like me frrrrr",
                           "Bocchi for president.", "What if… Bocchi was real?"))
-    minecraft = movies.movies("Minecraft")
-    minecraft.add_response(*("https://tenor.com/view/jack-black-funny-i-am-steve-minecraft-movie-minecraft-gif-5160011517617965793",
-                             "Creeper? Aww man!", "As a child, I yearned for the mines..."))
-    steve = movies.movies("I am Steve")
-    steve.add_response("https://tenor.com/view/jack-black-funny-i-am-steve-minecraft-movie-minecraft-gif-5160011517617965793")
-    shrek = movies.movies("Shrek")
+    shrek = replier.movies("Shrek")
     shrek.add_response(*("Get outta my swamp!", "Ogres are like onions.",
                          "Donkey is the real MVP.", "Shrek is love, Shrek is life.",
                          "What are you doing in my swamp? No, seriously."))
+    sonic = replier.movies("Sonic")
+    sonic.add_response("I miss my wife, tails :pensive: I miss her lots")
+    namedrop = replier.movies("rosebot")
+    namedrop.add_response(*("uwu hi bestie", "hiiiiiiii :3"))
+
 
 
 def get_words_by_pos(pos, max_results=50):
@@ -121,7 +121,7 @@ async def on_message(message):
         await message.channel.send("Surely you meant:\n" + content)
 
 
-    for movie_name, movie_obj in movies.movie_list.items():
+    for movie_name, movie_obj in replier.movie_list.items():
         if movie_name.lower() in content.lower():
             await message.channel.send(movie_obj.get_response())
             break  # Stop after the first match to avoid multiple responses
