@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Made l.name more careful with api request limit usage">
-      <change afterPath="$PROJECT_DIR$/movies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtube.py" afterDir="false" />
+    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Added sonic responses">
       <change beforePath="$PROJECT_DIR$/.idea/RoseBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RoseBot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DrSodaCan&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DrSodaCan/Rosebot.git&quot;,
+    &quot;accountId&quot;: &quot;43cc3e2c-8179-43c2-b0f1-e0c48162d208&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -45,13 +54,15 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -106,8 +117,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
-        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
       </set>
     </attachedChunks>
   </component>
@@ -147,6 +158,12 @@
       <workItem from="1722916692586" duration="5201000" />
       <workItem from="1723413961649" duration="286000" />
       <workItem from="1723685596036" duration="613000" />
+      <workItem from="1736897631747" duration="4495000" />
+      <workItem from="1737050085773" duration="648000" />
+      <workItem from="1737056174869" duration="1096000" />
+      <workItem from="1737095942602" duration="2901000" />
+      <workItem from="1737181154838" duration="1557000" />
+      <workItem from="1737342772585" duration="1227000" />
     </task>
     <task id="LOCAL-00001" summary="Added Digimon API &#10;Added Minecraft Skin command">
       <option name="closed" value="true" />
@@ -236,7 +253,63 @@
       <option name="project" value="LOCAL" />
       <updated>1720310217104</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added 8Ball command">
+      <option name="closed" value="true" />
+      <created>1736898780501</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1736898780501</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Better first time setup process">
+      <option name="closed" value="true" />
+      <created>1736898794146</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1736898794146</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Optimize/refactor/spacing">
+      <option name="closed" value="true" />
+      <created>1737056930551</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1737056930551</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added more responses to certain keywords">
+      <option name="closed" value="true" />
+      <created>1737056960215</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1737056960215</updated>
+    </task>
+    <task id="LOCAL-00016" summary="I am Steve">
+      <option name="closed" value="true" />
+      <created>1737096233490</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1737096233490</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added WYR command">
+      <option name="closed" value="true" />
+      <created>1737343799347</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1737343799347</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added sonic responses">
+      <option name="closed" value="true" />
+      <created>1737343813339</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1737343813339</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,9 +338,17 @@
     <MESSAGE value="Removed debug print" />
     <MESSAGE value="Added Random Word Generation" />
     <MESSAGE value="Made l.name more careful with api request limit usage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made l.name more careful with api request limit usage" />
+    <MESSAGE value="Added 8Ball command" />
+    <MESSAGE value="Better first time setup process" />
+    <MESSAGE value="Optimize/refactor/spacing" />
+    <MESSAGE value="Added more responses to certain keywords" />
+    <MESSAGE value="I am Steve" />
+    <MESSAGE value="Added WYR command" />
+    <MESSAGE value="Added sonic responses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sonic responses" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Rosebot$main.coverage" NAME="main Coverage Results" MODIFIED="1737343748958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1723685600571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
