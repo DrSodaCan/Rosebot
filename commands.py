@@ -110,7 +110,7 @@ class Commands(commands.Cog):
                      "Would you rather be left with a cliffhanger",
                      "Would you rather face The Creature or Larry?",
                      "Would you rather have no eyebrows, or no eyelashes?",
-                     "Would you rather you were always upside down, or always vertical?\nhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGM7rktGRzpByLsRlcyhGVjNlIMHSzcC2f2Q&s",
+                     "Would you rather you were always upside down, or always horizontal?\nhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGM7rktGRzpByLsRlcyhGVjNlIMHSzcC2f2Q&s",
                      "Would you rather have funky burga or EVIL burga?"]
         await ctx.send(choice(questions))
 
