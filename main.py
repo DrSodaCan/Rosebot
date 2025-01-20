@@ -46,9 +46,10 @@ async def movie_init():
                          "Donkey is the real MVP.", "Shrek is love, Shrek is life.",
                          "What are you doing in my swamp? No, seriously."))
     sonic = replier.movies("Sonic")
-    sonic.add_response("I miss my wife, tails :pensive: I miss her lots")
+    sonic.add_response(*("I miss my wife, tails :pensive: I miss her lots", "Shadow just GETS me yknow", "Rolling around at the speed of sound",
+                         "Keanu Reeves as Shadow is the best cinematic decision ever."))
     namedrop = replier.movies("rosebot")
-    namedrop.add_response(*("uwu hi bestie", "hiiiiiiii :3"))
+    namedrop.add_response(*("uwu hi bestie", "hiiiiiiii :3", "uwu", "nyaaa 🐈"))
 
 
 
