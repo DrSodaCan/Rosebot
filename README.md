@@ -3,6 +3,8 @@ A bot by @atlas.net
 Default prefix:
 `l.`
 
+The APIs (Discord, NinjaAPI) are both in a GitIgnored JSON file, but the CLI will prompt for the discord API upon startup, which will save
+
 ## Commands
 
 ### Crime
