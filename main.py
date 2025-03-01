@@ -96,13 +96,10 @@ async def main():
 
 
 
-
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
     await client.change_presence(activity=discord.Game(name="Tetris"))
-    #sync commands
-    await client.get_cog("Commands").sync_commands()
 
 
 @client.event

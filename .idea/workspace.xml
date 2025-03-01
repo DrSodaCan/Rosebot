@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Added sonic responses">
-      <change beforePath="$PROJECT_DIR$/.idea/RoseBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RoseBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,8 +116,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
-        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
+        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
       </set>
     </attachedChunks>
   </component>
@@ -163,7 +162,9 @@
       <workItem from="1737056174869" duration="1096000" />
       <workItem from="1737095942602" duration="2901000" />
       <workItem from="1737181154838" duration="1557000" />
-      <workItem from="1737342772585" duration="1227000" />
+      <workItem from="1737342772585" duration="2294000" />
+      <workItem from="1738634979866" duration="19000" />
+      <workItem from="1740802956178" duration="2113000" />
     </task>
     <task id="LOCAL-00001" summary="Added Digimon API &#10;Added Minecraft Skin command">
       <option name="closed" value="true" />
@@ -309,7 +310,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737343813339</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fixed misspelling">
+      <option name="closed" value="true" />
+      <created>1737344113560</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1737344113560</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1737344163001</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1737344163001</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,10 +362,12 @@
     <MESSAGE value="I am Steve" />
     <MESSAGE value="Added WYR command" />
     <MESSAGE value="Added sonic responses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sonic responses" />
+    <MESSAGE value="fixed misspelling" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Rosebot$main.coverage" NAME="main Coverage Results" MODIFIED="1737343748958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Rosebot$main.coverage" NAME="main Coverage Results" MODIFIED="1740804396027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1723685600571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
