@@ -19,8 +19,9 @@ class Commands(commands.Cog):
         embedVar.add_field(name="digimon", value="Get information about a digimon. Input: Name", inline=False)
         embedVar.add_field(name="mc_skin", value="Borrow someone's Minecraft skin. Input: username", inline=False)
         embedVar.add_field(name="quantize", value="Quantize an image. Required input: Image. Optional input: # of colors (default 256)", inline=False)
-        embedVar.add_field(name="balance", value="Check your Lunacoin balance", inline=False)
-        embedVar.add_field(name="pay", value="Send Lunacoins to someone. Input: @User, amount", inline=False)
+        embedVar.add_field(name="wyr", value="Asks a cool Would You Rather question", inline=False)
+        embedVar.add_field(name="eightball", value="Provides wisdom in your time of need", inline=False)
+
         return await ctx.send(embed=embedVar)
 
 
@@ -110,9 +111,8 @@ class Commands(commands.Cog):
         questions = ["Would you rather have unlimited bacons and no games, or games, unlimited games, but no more games?",
                      "Would you rather be left with a cliffhanger",
                      "Would you rather face The Creature or Larry?",
-                     "Would you rather have no eyebrows, or no eyelashes?",
-                     "Would you rather you were always upside down, or always horizontal?\nhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGM7rktGRzpByLsRlcyhGVjNlIMHSzcC2f2Q&s",
-                     "Would you rather have funky burga or EVIL burga?"]
+                     "Would you rather shave your eyebrows, or your eyelashes?",
+                     "Would you rather have **EVIL** burga or **HORROR** fries?"]
         await ctx.send(choice(questions))
 
 
