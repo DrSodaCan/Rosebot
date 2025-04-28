@@ -64,6 +64,7 @@ def get_words_by_pos(pos, max_results=50):
 
 
 nouns = get_words_by_pos(wordnet.NOUN, 50)
+nouns = [noun.replace('_', ' ') for noun in nouns]
 adjectives = get_words_by_pos(wordnet.ADJ, 50)
 verbs = get_words_by_pos(wordnet.VERB, 50)
 
