@@ -63,6 +63,11 @@ def get_words_by_pos(pos, max_results=50):
     return list(words)[:max_results]
 
 
+def refill_if_needed(word_list, pos, threshold=10, refill_amount=50):
+    if len(word_list) < threshold:
+        new_words = get_words_by_pos(pos, refill_amount)
+        word_list.extend([word.replace('_', ' ') for word in new_words])
+
 nouns = get_words_by_pos(wordnet.NOUN, 50)
 nouns = [noun.replace('_', ' ') for noun in nouns]
 adjectives = get_words_by_pos(wordnet.ADJ, 50)
@@ -102,34 +107,41 @@ async def on_ready():
     print(f'We have logged in as {client.user}')
     await client.change_presence(activity=discord.Game(name="Tetris"))
 
-
 @client.event
 async def on_message(message):
-    # Don't let the bot respond to its own messages
     if message.author == client.user:
         return
 
     content = message.content
-    content = content.replace("l.noun", nouns[int(random() * len(nouns))])
-    content = content.replace("l.adjective", adjectives[int(random() * len(adjectives))])
-    content = content.replace("l.verb", verbs[int(random() * len(verbs))])
-    if content.find("l.name") != -1:
+
+    if "l.noun" in content and nouns:
+        word = nouns.pop(int(random() * len(nouns)))
+        content = content.replace("l.noun", word, 1)
+        refill_if_needed(nouns, wordnet.NOUN)
+
+    if "l.adjective" in content and adjectives:
+        word = adjectives.pop(int(random() * len(adjectives)))
+        content = content.replace("l.adjective", word, 1)
+        refill_if_needed(adjectives, wordnet.ADJ)
+
+    if "l.verb" in content and verbs:
+        word = verbs.pop(int(random() * len(verbs)))
+        content = content.replace("l.verb", word, 1)
+        refill_if_needed(verbs, wordnet.VERB)
+
+    if "l.name" in content:
         content = content.replace("l.name", names.get_name())
 
     if content != message.content:
         await message.channel.send("Surely you meant:\n" + content)
 
-
     for movie_name, movie_obj in replier.movie_list.items():
         if movie_name.lower() in content.lower():
             await message.channel.send(movie_obj.get_response())
-            break  # Stop after the first match to avoid multiple responses
-
+            break
 
     if "dune" in message.content.lower():
         await message.add_reaction("🐛")
-        #await message.channel.send(movies.movie_list["Dune"].get_response())
-
     if "nuts" in message.content.lower():
         await message.add_reaction("🥜")
     if "deez" in message.content.lower():
@@ -140,6 +152,7 @@ async def on_message(message):
         await message.add_reaction("😳")
     if "joe" in message.content.lower():
         await message.add_reaction("😏")
+
     await client.process_commands(message)
 
 
