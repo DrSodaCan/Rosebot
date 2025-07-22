@@ -2,7 +2,8 @@
 .env
 config.json
 .idea
-.png
-.jpg
-.jpeg
-.gif
+*.png
+*.jpg
+*.jpeg
+*.gif
+output.png

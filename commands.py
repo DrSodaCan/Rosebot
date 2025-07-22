@@ -1,3 +1,4 @@
+import asyncio
 from random import randint
 from random import choice
 
@@ -7,10 +8,14 @@ import requests
 from discord.ext import commands
 from PIL import Image
 
+from roast_AI import generate_roast, run_roast_async
+
 
 class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.roast_queue = asyncio.Queue()
+        self.processing_roast = False
 
     @commands.command(name='help')
     async def help(self, ctx):
@@ -21,6 +26,7 @@ class Commands(commands.Cog):
         embedVar.add_field(name="quantize", value="Quantize an image. Required input: Image. Optional input: # of colors (default 256)", inline=False)
         embedVar.add_field(name="wyr", value="Asks a cool Would You Rather question", inline=False)
         embedVar.add_field(name="eightball", value="Provides wisdom in your time of need", inline=False)
+        embedVar.add_field(name="roast", value="Roasts your anime taste! Input: AniList Profile Name", inline=False)
 
         return await ctx.send(embed=embedVar)
 
@@ -108,7 +114,7 @@ class Commands(commands.Cog):
 
     @commands.command(name='wyr')
     async def wyr(self, ctx):
-        questions = ["Would you rather have unlimited bacons and no games, or games, unlimited games, but no more games?",
+        questions = ["Would you rather have unlimited bacon and no games, or games, unlimited games, but no more games?",
                      "Would you rather be left with a cliffhanger",
                      "Would you rather face The Creature or Larry?",
                      "Would you rather shave your eyebrows, or your eyelashes?",
@@ -116,6 +122,39 @@ class Commands(commands.Cog):
         await ctx.send(choice(questions))
 
 
+    @commands.command(name='roast')
+    async def roast(self, ctx, username: str):
+        msg = await ctx.send(f"Generating roast for `{username}`...")
+        await self.roast_queue.put((ctx, username, msg))
+
+        if not self.processing_roast:
+            self.bot.loop.create_task(self.process_roast_queue())
+
+    async def process_roast_queue(self):
+        self.processing_roast = True
+
+        while not self.roast_queue.empty():
+            ctx, username, msg = await self.roast_queue.get()
+
+            try:
+                # Blocking roast generation, safely run in executor
+                roast_text = await run_roast_async(username)
+
+                embed = discord.Embed(
+                    title=f"Roast for {username}",
+                    description=roast_text,
+                    color=0xF765A3  # Playful roast color
+                )
+
+                await msg.edit(content=None, embed=embed)
+
+            except Exception as e:
+                print(f"[ROAST ERROR] {e}")
+                await msg.edit(content=f"⚠️ Failed to generate roast for `{username}`: {str(e)}!")
+
+            await asyncio.sleep(1)
+
+        self.processing_roast = False
 
     '''''
     #Lunacoin commands: balance, send, request, link to mc account leaderboard

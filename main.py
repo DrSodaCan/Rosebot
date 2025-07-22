@@ -3,7 +3,6 @@ import json
 from random import random
 from names import Name
 import discord
-import requests
 from discord.ext import commands
 import replier
 
@@ -17,6 +16,11 @@ intents.message_content = True
 
 client = commands.Bot(command_prefix="l.", intents=intents)
 config = {}
+
+reactions = {"joe": "😏",
+             "deez": "🥜",
+             "nut": "🥜",
+             "mommy": "🤨"}
 names = Name("", [])
 async def movie_init():
     dune = replier.movies("Dune")
@@ -26,7 +30,7 @@ async def movie_init():
                  "I'm not a fan of Dune, but I respect your opinion", "Dune is a great book, but it's not for me",
                  "I've never read Dune, but I've heard it's good", "Dune is overrated",
                  "Dune? Reminds me of the deserts from my deployment in Iraq", "Dune is a classic",
-                 "Paul Atreides makes me feel things ;))", "Heyyyyyy, wanna talk about Dune?"))
+                 "Paul Atreides makes me feel things", "Heyyyyyy, wanna talk about Dune?"))
     naruto = replier.movies("Naruto")
     naruto.add_response(*("Pshh, weebs amirite?", "Naruto is overrated",
                           "Believe it! …or don't.", "Sasuke was better anyway.",
@@ -37,19 +41,20 @@ async def movie_init():
     pomni.add_response(*("she just like me frfr",
                          "https://tenor.com/view/the-pomni-song-the-amazing-digital-circus-pomni-digital-circus-pomni-my-name-is-pomni-and-i-can%E2%80%99t-escape-the-digital-circus-gif-930457201671946760",
                          "I wake up everyday thinking I'm stuck in a digital circus too."))
-
+    crazy = replier.movies("Crazy")
+    crazy.add_response(*("Crazy? I was crazy once. They put me in a room. A rubber room. A rubber room with rats. and rats make me crazy",
+                         "https://tenor.com/view/cat-wiggle-crazy-cat-zoomies-gif-9877358298643393466"),
+                       )
     bocchi = replier.movies("Bocchi")
-    bocchi.add_response(*("She just like me frfr", "Bocchi just GETS me yknow. She just like me frrrrr",
+    bocchi.add_response(*("She just like me frfr", "Bocchi just GETS me yknow.",
                           "Bocchi for president.", "What if… Bocchi was real?"))
-    shrek = replier.movies("Shrek")
-    shrek.add_response(*("Get outta my swamp!", "Ogres are like onions.",
-                         "Donkey is the real MVP.", "Shrek is love, Shrek is life.",
-                         "What are you doing in my swamp? No, seriously."))
+    tea = replier.movies("Tea")
+    tea.add_response(*("omg yass girl what's the tea?", "omg gurl spill it queen!!"))
     sonic = replier.movies("Sonic")
     sonic.add_response(*("I miss my wife, tails :pensive: I miss her lots", "Shadow just GETS me yknow", "Rolling around at the speed of sound",
                          "Keanu Reeves as Shadow is the best cinematic decision ever."))
     namedrop = replier.movies("rosebot")
-    namedrop.add_response(*("uwu hi bestie", "hiiiiiiii :3", "uwu", "nyaaa 🐈"))
+    namedrop.add_response(*("heyy bestie", "hiiiiiiii :3", "uwu", "nyaaa 🐈"))
 
 
 

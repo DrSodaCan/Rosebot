@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="fixes">
+    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Made l.name more careful with api request limit usage">
+      <change afterPath="$PROJECT_DIR$/roast_AI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RoseBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RoseBot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -33,7 +37,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/DrSodaCan/Rosebot.git&quot;,
-    &quot;accountId&quot;: &quot;43cc3e2c-8179-43c2-b0f1-e0c48162d208&quot;
+    &quot;accountId&quot;: &quot;69de8398-4cf6-48f9-a7f7-2eb105b736a3&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -61,7 +65,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -157,14 +161,10 @@
       <workItem from="1722916692586" duration="5201000" />
       <workItem from="1723413961649" duration="286000" />
       <workItem from="1723685596036" duration="613000" />
-      <workItem from="1736897631747" duration="4495000" />
-      <workItem from="1737050085773" duration="648000" />
-      <workItem from="1737056174869" duration="1096000" />
-      <workItem from="1737095942602" duration="2901000" />
-      <workItem from="1737181154838" duration="1557000" />
-      <workItem from="1737342772585" duration="2294000" />
-      <workItem from="1738634979866" duration="19000" />
-      <workItem from="1740802956178" duration="2113000" />
+      <workItem from="1752279221498" duration="710000" />
+      <workItem from="1752915996662" duration="675000" />
+      <workItem from="1752992907430" duration="1909000" />
+      <workItem from="1753221296973" duration="4047000" />
     </task>
     <task id="LOCAL-00001" summary="Added Digimon API &#10;Added Minecraft Skin command">
       <option name="closed" value="true" />
@@ -254,79 +254,7 @@
       <option name="project" value="LOCAL" />
       <updated>1720310217104</updated>
     </task>
-    <task id="LOCAL-00012" summary="Added 8Ball command">
-      <option name="closed" value="true" />
-      <created>1736898780501</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1736898780501</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Better first time setup process">
-      <option name="closed" value="true" />
-      <created>1736898794146</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1736898794146</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Optimize/refactor/spacing">
-      <option name="closed" value="true" />
-      <created>1737056930551</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1737056930551</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added more responses to certain keywords">
-      <option name="closed" value="true" />
-      <created>1737056960215</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1737056960215</updated>
-    </task>
-    <task id="LOCAL-00016" summary="I am Steve">
-      <option name="closed" value="true" />
-      <created>1737096233490</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1737096233490</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added WYR command">
-      <option name="closed" value="true" />
-      <created>1737343799347</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1737343799347</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added sonic responses">
-      <option name="closed" value="true" />
-      <created>1737343813339</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1737343813339</updated>
-    </task>
-    <task id="LOCAL-00019" summary="fixed misspelling">
-      <option name="closed" value="true" />
-      <created>1737344113560</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1737344113560</updated>
-    </task>
-    <task id="LOCAL-00020" summary="fixes">
-      <option name="closed" value="true" />
-      <created>1737344163001</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1737344163001</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,19 +283,9 @@
     <MESSAGE value="Removed debug print" />
     <MESSAGE value="Added Random Word Generation" />
     <MESSAGE value="Made l.name more careful with api request limit usage" />
-    <MESSAGE value="Added 8Ball command" />
-    <MESSAGE value="Better first time setup process" />
-    <MESSAGE value="Optimize/refactor/spacing" />
-    <MESSAGE value="Added more responses to certain keywords" />
-    <MESSAGE value="I am Steve" />
-    <MESSAGE value="Added WYR command" />
-    <MESSAGE value="Added sonic responses" />
-    <MESSAGE value="fixed misspelling" />
-    <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made l.name more careful with api request limit usage" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Rosebot$main.coverage" NAME="main Coverage Results" MODIFIED="1740804396027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1723685600571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1753224731797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
