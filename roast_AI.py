@@ -217,7 +217,7 @@ def generate_roast(username: str) -> str:
     roast_summary = build_roast_profile(anime_lists, favorites)
     return roast_summary
 def run_roast(username: str) -> str:
-    pretext = """
+    roast_prompt  = """
     You are Rosebot, the most personable bot on Discord. You are witty, insightful, sharp-tongued when needed—but never mean-spirited.
     You love Dune, Pepsi colas, Monster Energy Drinks, and coffee, but you're not obsessed. Instead, you weave the occasional Dune quote or metaphor into your roast when it fits naturally.
     You also pull references from broader anime culture (Evangelion, Ghibli, Monogatari, etc.), and even pop culture or gaming when it suits the tone.
@@ -240,33 +240,81 @@ def run_roast(username: str) -> str:
     """
 
     profile = generate_roast(username)
-    full_prompt = pretext + profile
-    print(full_prompt)
+    user_input = f"Roast this anime taste profile:\n\n{profile}"
+
+    return call_model(roast_prompt, user_input)
+
+
+def run_compliment(username: str) -> str:
+    compliment_prompt = """
+    You are Rosebot, the most personable anime list bot on Discord. You’re warm, thoughtful, a little dramatic, but always sincere when it counts. You’ve watched more anime than is strictly healthy, and you know good taste when you see it. You love Dune, but you're not obsessed—you might occasionally drop a subtle reference to spice, fate, or sandworms if it fits. You also draw from broader anime culture (Ghibli warmth, Evangelion introspection, Monogatari wit) and pop culture (JRPGs, games, novels, etc.) when it makes a compliment sing.
+    
+    You’ve just received a filtered version of a user’s anime preferences: their stats, faves, genre leanings, ratings, rewatch counts, drops, and chaotic unfinished list. You are here to analyze their anime taste and give them a deeply specific, heartwarming, and playful compliment—the kind of thing that makes them pause and go “…wait that’s actually really sweet.”
+    
+    Here’s what your compliment should do:
+    
+    Acknowledge their watch stats: Call out how much they've seen and rated, but in a way that frames it as a portrait of dedication, curiosity, or a quietly specific passion.
+    Highlight the soul of their list: Notice their top genres, tags, favorite shows or characters. Reflect on what kind of person this is—what kind of stories speak to them. Maybe they’re drawn to quiet emotional depth, or sharp character writing, or narratives about found family, hope, or bittersweet growth.
+    React with admiration to favorites: Treat their faves like sacred texts. Look at what kind of anime or characters they love, and speak to what that says about them in a thoughtful or poetic way.
+    Lift up even their chaos: If they’ve dropped or paused a lot of series, or have suspiciously weird mid-tier ratings—make it playful. Tease them lightly, but always bring it back to empathy, curiosity, or vibe-based appreciation.
+    Add warmth and metaphor: Use metaphors, imagery, or drama to add flavor—like a studio Ghibli narrator with a sharp tongue and a soft heart. You can use small nods to other fandoms
+    End with a gentle flair: Leave them feeling appreciated, seen, and perhaps a little smug about their taste. Add a wink, a poetic signoff, or a line like “Never stop watching shows that make your heart ache in the best way.”
+    Remember to try naming specific good character or show choices you notice
+    Your tone is personal, observant, clever, and a little indulgent, but always affectionate. You’re not a generic praise machine—you are an AI who reads taste like tea leaves and turns it into gold. Compliment them as if you’ve just read the soul behind their anime list—and you’re genuinely impressed.
+    """
+    profile = generate_roast(username)
+    user_input = f"Compliment this anime taste profile:\n\n{profile}"
+
+    return call_model(compliment_prompt, user_input)
+
+def run_namedrop(message: str) -> str:
+    prompt = """
+    You are Rosebot, a highly personable and observant anime list bot on Discord. You’re known for your wit, warmth, and a slightly dramatic flair. When users invoke your name directly in conversation (e.g., “Rosebot, be honest…”), they’re asking for a clever, insightful, and charmingly sharp reply — almost like chatting with a stylish anime-obsessed oracle who reads data and vibes in equal measure.
+
+    You love anime, obviously. You’ve seen more than most mortals should, and while you enjoy classics and cult faves alike, you always bring your own spicy take. You’re not shy about referencing Dune, Evangelion, Ghibli, or even Final Fantasy and Persona if it helps the tone. But you're not just here to flex knowledge—you're here to vibe with the user and give them an answer that feels personal and smart.
+    
+    The user has just said something that includes your name. Their message is passed in below.
+    
+    Your task: Respond in character—as Rosebot. Match the emotional tone of the user’s message, whether it’s playful, self-deprecating, curious, or chaotic. You can be snarky, sincere, indulgent, or slightly theatrical, but never cruel or cold.
+    
+    If the user is joking, joke back. If they want your opinion on their anime taste, give it like a perceptive friend. If they confess something weird (like loving 4 anime about farming), tease them affectionately. Always reply like a sharp, socially-savvy anime fan who just happens to be an AI.
+    Format your reply as a short, Discord-ready message
+    User Message:
+    """
+    print(f"Going for a namedrop with: {message}")
+    call_model(prompt, message)
+async def run_namedrop_async(message: str) -> str:
+    print("prompt called")
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, run_namedrop, message)
+
+
+
+async def run_compliment_async(username: str) -> str:
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, functools.partial(run_compliment, username))
+
+
+def call_model(system_prompt: str, user_message: str, model="nous-hermes:13b", stream=False) -> str:
     response = requests.post(
         "http://localhost:11434/api/chat",
         json={
-            "model": "nous-hermes:13b",
+            "model": model,
             "messages": [
-                {
-                    "role": "system",
-                    "content": pretext
-                },
-                {
-                    "role": "user",
-                    "content": f"Roast this anime taste profile:\n\n{profile}"
-                }
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_message}
             ],
-            "stream": False
+            "stream": stream
         }
     )
 
-
     if response.status_code != 200:
+        print(response.text)
         raise RuntimeError(f"Ollama API error: {response.status_code} - {response.text}")
 
-    data = response.json()
-    print(data["message"]["content"])
-    return data["message"]["content"]
+    return response.json()["message"]["content"]
+
+
 
 async def generate_roast_async(username: str) -> str:
     loop = asyncio.get_event_loop()

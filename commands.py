@@ -8,14 +8,14 @@ import requests
 from discord.ext import commands
 from PIL import Image
 
-from roast_AI import generate_roast, run_roast_async
+from roast_AI import generate_roast, run_roast_async, run_compliment_async, run_namedrop_async
 
 
 class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.roast_queue = asyncio.Queue()
-        self.processing_roast = False
+        self.task_queue = asyncio.Queue()
+        self.processing_task = False
 
     @commands.command(name='help')
     async def help(self, ctx):
@@ -121,40 +121,60 @@ class Commands(commands.Cog):
                      "Would you rather have **EVIL** burga or **HORROR** fries?"]
         await ctx.send(choice(questions))
 
-
     @commands.command(name='roast')
     async def roast(self, ctx, username: str):
         msg = await ctx.send(f"Generating roast for `{username}`...")
-        await self.roast_queue.put((ctx, username, msg))
+        await self.task_queue.put(("roast", ctx, username, msg))
 
-        if not self.processing_roast:
-            self.bot.loop.create_task(self.process_roast_queue())
+        if not self.processing_task:
+            self.bot.loop.create_task(self.process_task_queue())
 
-    async def process_roast_queue(self):
-        self.processing_roast = True
+    @commands.command(name='compliment')
+    async def compliment(self, ctx, username: str):
+        msg = await ctx.send(f"Generating compliment for `{username}`...")
+        await self.task_queue.put(("compliment", ctx, username, msg))
 
-        while not self.roast_queue.empty():
-            ctx, username, msg = await self.roast_queue.get()
+        if not self.processing_task:
+            self.bot.loop.create_task(self.process_task_queue())
+
+
+
+
+
+
+    async def process_task_queue(self):
+        self.processing_task = True
+
+        while not self.task_queue.empty():
+            task_type, ctx, username, msg = await self.task_queue.get()
 
             try:
-                # Blocking roast generation, safely run in executor
-                roast_text = await run_roast_async(username)
+                if task_type == "roast":
+                    result = await run_roast_async(username)
+                    title = f"Roast for {username}"
+                    color = 0xF765A3
+                elif task_type == "compliment":
+                    result = await run_compliment_async(username)
+                    title = f"Compliment for {username}"
+                    color = 0x89F7A3
+
+                else:
+                    raise ValueError(f"Unknown task type: {task_type}")
 
                 embed = discord.Embed(
-                    title=f"Roast for {username}",
-                    description=roast_text,
-                    color=0xF765A3  # Playful roast color
+                    title=title,
+                    description=result,
+                    color=color
                 )
-
                 await msg.edit(content=None, embed=embed)
 
             except Exception as e:
-                print(f"[ROAST ERROR] {e}")
-                await msg.edit(content=f"⚠️ Failed to generate roast for `{username}`: {str(e)}!")
+                print(f"[TASK ERROR] {e}")
+                await msg.edit(content=f"⚠️ Failed to generate response for `{username}`: {str(e)}!")
 
             await asyncio.sleep(1)
 
-        self.processing_roast = False
+        self.processing_task = False
 
     '''''
     #Lunacoin commands: balance, send, request, link to mc account leaderboard

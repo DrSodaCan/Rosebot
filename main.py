@@ -1,6 +1,8 @@
 import asyncio
 import json
 from random import random
+
+from commands import Commands
 from names import Name
 import discord
 from discord.ext import commands
@@ -9,7 +11,15 @@ import replier
 import nltk
 from nltk.corpus import wordnet
 
+from roast_AI import run_namedrop_async
+
 nltk.download('wordnet')
+
+
+namedrop_queue = asyncio.Queue()
+processing_namedrop = False
+
+
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -53,8 +63,8 @@ async def movie_init():
     sonic = replier.movies("Sonic")
     sonic.add_response(*("I miss my wife, tails :pensive: I miss her lots", "Shadow just GETS me yknow", "Rolling around at the speed of sound",
                          "Keanu Reeves as Shadow is the best cinematic decision ever."))
-    namedrop = replier.movies("rosebot")
-    namedrop.add_response(*("heyy bestie", "hiiiiiiii :3", "uwu", "nyaaa 🐈"))
+    #namedrop = replier.movies("rosebot")
+    #namedrop.add_response(*("heyy bestie", "hiiiiiiii :3", "uwu", "nyaaa 🐈"))
 
 
 
@@ -86,10 +96,7 @@ async def main():
     config = await importConfig()
 
     if not config:
-        config = {}
-        config['token'] = input("Enter your bot token: ")
-        config['prefix'] = "l."
-        config['ninjaAPI'] = ""
+        config = {'token': input("Enter your bot token: "), 'prefix': "l.", 'ninjaAPI': ""}
         with open('config.json', 'w') as f:
             json.dump(config, f)
     try:
@@ -99,7 +106,7 @@ async def main():
 
     # Load the commands
     client.remove_command("help")
-    print("Loading the commands extension")  # Debug print statement
+
     await client.load_extension('commands')
 
     # Run the bot
@@ -157,6 +164,9 @@ async def on_message(message):
         await message.add_reaction("😳")
     if "joe" in message.content.lower():
         await message.add_reaction("😏")
+    #if client.user.mention in message.content:
+    #   await client.get_cog("Commands").namedrop(await client.get_context(message))
+    #    return
 
     await client.process_commands(message)
 

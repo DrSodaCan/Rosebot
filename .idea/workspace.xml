@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Made l.name more careful with api request limit usage">
-      <change afterPath="$PROJECT_DIR$/roast_AI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RoseBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RoseBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dae7881c-cb58-41c7-8b4a-1334570010e9" name="Changes" comment="Added l.roast command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roast_AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/roast_AI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +161,10 @@
       <workItem from="1752279221498" duration="710000" />
       <workItem from="1752915996662" duration="675000" />
       <workItem from="1752992907430" duration="1909000" />
-      <workItem from="1753221296973" duration="4047000" />
+      <workItem from="1753221296973" duration="6998000" />
+      <workItem from="1753234005811" duration="443000" />
+      <workItem from="1753579910105" duration="617000" />
+      <workItem from="1754005358391" duration="79000" />
     </task>
     <task id="LOCAL-00001" summary="Added Digimon API &#10;Added Minecraft Skin command">
       <option name="closed" value="true" />
@@ -254,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720310217104</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added l.roast command">
+      <option name="closed" value="true" />
+      <created>1753225808742</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1753225808742</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,9 +291,10 @@
     <MESSAGE value="Removed debug print" />
     <MESSAGE value="Added Random Word Generation" />
     <MESSAGE value="Made l.name more careful with api request limit usage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made l.name more careful with api request limit usage" />
+    <MESSAGE value="Added l.roast command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added l.roast command" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1753224731797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RoseBot$main.coverage" NAME="main Coverage Results" MODIFIED="1753234411302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
