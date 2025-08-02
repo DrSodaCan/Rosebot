@@ -21,5 +21,4 @@ Replies with the Digimon's description and an image
 
 ## Todo:
 Add music functionality
-Improve Digimon API usages
 Slash Commands
