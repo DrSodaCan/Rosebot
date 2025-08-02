@@ -2,16 +2,13 @@ import asyncio
 import json
 from random import random
 
-from commands import Commands
-from names import Name
 import discord
-from discord.ext import commands
-import replier
-
 import nltk
+from discord.ext import commands
 from nltk.corpus import wordnet
 
-from roast_AI import run_namedrop_async
+import replier
+from names import Name
 
 nltk.download('wordnet')
 

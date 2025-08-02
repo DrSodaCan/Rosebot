@@ -1,10 +1,8 @@
 import asyncio
 import functools
+from collections import Counter
 
 import requests
-from collections import Counter
-import subprocess
-import shutil
 
 # -- Settings --
 ANILIST_API_URL = "https://graphql.anilist.co"

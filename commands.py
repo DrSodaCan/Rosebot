@@ -1,14 +1,13 @@
 import asyncio
-from random import randint
 from random import choice
+from random import randint
 
-import aiohttp
 import discord
 import requests
-from discord.ext import commands
 from PIL import Image
+from discord.ext import commands
 
-from roast_AI import generate_roast, run_roast_async, run_compliment_async, run_namedrop_async
+from roast_AI import run_roast_async, run_compliment_async
 
 
 class Commands(commands.Cog):
